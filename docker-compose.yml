@@ -1,0 +1,14 @@
+version: "3"
+services: 
+  app:
+    container_name: go-test
+    build:
+      context: .
+      dockerfile: ./infla/Dockerfile
+    tty: true
+    volumes:
+      - ./app:/go/src
+    env_file:
+      - ./.env
+    ports:
+      - 3001:3001
