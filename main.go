@@ -22,6 +22,11 @@ func main() {
 
 	router.GET("/", getPlayers)
 
+	router.GET("/signup", getSignup)
+	router.POST("/signup", postSignup)
+	router.GET("/login", getLogin)
+	router.POST("/login", postLogin)
+
 	// サーバーを起動
 	router.Run(":8080")
 }
