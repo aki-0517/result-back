@@ -1,5 +1,5 @@
-CREATE TABLE `users` (
-    `user_id` varchar(26) COLLATE utf8mb4_bin NOT NULL,
+CREATE TABLE `players` (
+    `player_id` varchar(26) COLLATE utf8mb4_bin NOT NULL,
     `name` varchar(255) COLLATE utf8mb4_bin NOT NULL,
     `sail_no` tinyint DEFAULT '0',
     `sex` varchar(255) COLLATE utf8mb4_bin NOT NULL,
@@ -14,8 +14,8 @@ CREATE TABLE `admins` (
     `hashed_password` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
-ALTER TABLE `users`
-ADD PRIMARY KEY (`user_id`);
+ALTER TABLE `players`
+ADD PRIMARY KEY (`player_id`);
 
 ALTER TABLE `admins`
 ADD PRIMARY KEY (`admin_id`);
