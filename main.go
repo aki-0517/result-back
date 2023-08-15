@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 type player struct {
@@ -12,7 +13,7 @@ type player struct {
 }
 
 var players = []player{
-	{Name: "ユーザー", Point: 100, Sail_no: 17, Sex: "man"},
+	{Name: "ユーザー11", Point: 100, Sail_no: 17, Sex: "man"},
 	{Name: "ユーザー2", Point: 90, Sail_no: 17, Sex: "woman"},
 	{Name: "ユーザー3", Point: 85, Sail_no: 17, Sex: "man"},
 }
@@ -22,13 +23,16 @@ func main() {
 
 	router.GET("/", getPlayers)
 
-	router.GET("/signup", getSignup)
-	router.POST("/signup", postSignup)
-	router.GET("/login", getLogin)
-	router.POST("/login", postLogin)
+	public := router.Group("/api")
+
+    public.POST("/register", func(c *gin.Context) {
+        c.JSON(http.StatusOK, gin.H{
+            "data": "this is the register endpoint.",
+        })
+    })
 
 	// サーバーを起動
-	router.Run(":8080")
+	router.Run(":8000")
 }
 
 func getPlayers(c *gin.Context) {
